@@ -11,7 +11,7 @@
 #include "dacmultisigs.hpp"
 
 void dacmultisigs::proposed( name proposer, name proposal_name, string metadata ) {
-    require_auth( "dacauthority"_n );
+    require_auth( "dacauth11111"_n );
     require_auth( proposer );
 
     msig_proposals_table msig_proposals("eosio.msig"_n, proposer.value);
@@ -35,7 +35,7 @@ void dacmultisigs::proposed( name proposer, name proposal_name, string metadata 
 
 void dacmultisigs::approved( name proposer, name proposal_name, name approver ){
     require_auth(approver);
-    require_auth( "dacauthority"_n );
+    require_auth( "dacauth11111"_n );
 
     msig_proposals_table msig_proposals("eosio.msig"_n, proposer.value);
     msig_proposals.get(proposal_name.value, "ERR::PROPOSAL_NOT_FOUND_MSIG::Proposal not found in eosio.msig");
@@ -49,7 +49,7 @@ void dacmultisigs::approved( name proposer, name proposal_name, name approver ){
 
 void dacmultisigs::unapproved( name proposer, name proposal_name, name unapprover ){
     require_auth(unapprover);
-    require_auth( "dacauthority"_n );
+    require_auth( "dacauth11111"_n );
 
     msig_proposals_table msig_proposals("eosio.msig"_n, proposer.value);
     msig_proposals.get(proposal_name.value, "ERR::PROPOSAL_NOT_FOUND_MSIG::Proposal not found in eosio.msig");
@@ -63,7 +63,7 @@ void dacmultisigs::unapproved( name proposer, name proposal_name, name unapprove
 
 void dacmultisigs::cancelled( name proposer, name proposal_name, name canceler ){
     require_auth(canceler);
-    require_auth( "dacauthority"_n );
+    require_auth( "dacauth11111"_n );
 
     msig_proposals_table msig_proposals("eosio.msig"_n, proposer.value);
     auto prop = msig_proposals.find(proposal_name.value);
@@ -76,7 +76,7 @@ void dacmultisigs::cancelled( name proposer, name proposal_name, name canceler )
 
 void dacmultisigs::executed( name proposer, name proposal_name, name executer ) {
     require_auth(executer);
-    require_auth( "dacauthority"_n );
+    require_auth( "dacauth11111"_n );
 
     msig_proposals_table msig_proposals("eosio.msig"_n, proposer.value);
     auto prop = msig_proposals.find(proposal_name.value);
@@ -88,7 +88,7 @@ void dacmultisigs::executed( name proposer, name proposal_name, name executer ) 
 }
 
 void dacmultisigs::clean( name proposer, name proposal_name ) {
-    require_auth( "dacauthority"_n );
+    require_auth( "dacauth11111"_n );
 
     uint32_t dtnow = now();
     uint32_t two_weeks = 60 * 60 * 24 * 14;
